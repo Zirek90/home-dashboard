@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* This applies a default text color */
+html {
+  --text-color: black; /* Light mode color */
+}
+
+/* Dark mode styles */
+html.dark {
+  --text-color: white; /* Dark mode color */
+}
+
+/* Apply this variable globally to the text color */
+body {
+  color: var(--text-color);
+}

@@ -1,0 +1,8 @@
+.DS_Store
+frontend/src/routeTree.gen.ts
+frontend/src/assets/logo.jpg
+backend/.env.development
+backend/.env.production
+frontend/.env.production
+frontend/.env.production
+frontend/.env.development

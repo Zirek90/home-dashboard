@@ -1,0 +1,16 @@
+name: Protect Main Branch
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check_source_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure PR is from Develop
+        run: |
+          if [[ "${{ github.head_ref }}" != "develop" ]]; then
+            echo "❌ Only 'develop' can be merged into 'main'."
+            exit 1
+          fi

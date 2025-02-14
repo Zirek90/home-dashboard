@@ -2,8 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useResetPassword } from "@src/api/mutations/useResetPassword";
-import { Button, Input } from "@src/components";
+import { useResetPassword } from "@src/api/mutations";
+import { Button, PasswordInput } from "@src/components";
 import { useNotificationContext } from "@src/providers";
 import { errorHandler } from "@src/utils";
 
@@ -61,8 +61,8 @@ export function ResetPassword() {
       >
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">Reset Password</h2>
 
-        <Input label="New Password" type="password" name="newPassword" control={control} />
-        <Input label="Confirm New Password" type="password" name="confirmPassword" control={control} />
+        <PasswordInput label="New Password" name="newPassword" control={control} />
+        <PasswordInput label="Confirm New Password" name="confirmPassword" control={control} />
         <Button text="Reset" type="submit" />
 
         <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">

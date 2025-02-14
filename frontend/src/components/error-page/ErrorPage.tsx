@@ -1,5 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { FiAlertCircle } from "react-icons/fi";
+import { Button } from "../shared";
 
 interface ErrorPageProps {
   message?: string;
@@ -22,12 +23,11 @@ export function ErrorPage(props: ErrorPageProps) {
         {message || "An unexpected error occurred. Please try again."}
       </h2>
       {onRetry && (
-        <button
+        <Button
+          text="Retry"
           onClick={handleRetry}
-          className="px-4 py-2 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition duration-300"
-        >
-          Retry
-        </button>
+          className="px-4 py-2 bg-red-600 text-white font-medium rounded hover:bg-red-700 transition duration-300"
+        />
       )}
     </div>
   );

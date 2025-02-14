@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button, ErrorPage, Input, Loader, PasswordInput } from "@src/components";
+import { Button, ErrorPage, TextInput, Loader, PasswordInput } from "@src/components";
 import { useAuthContext } from "@src/providers";
 
 export const Route = createFileRoute("/login")({
@@ -46,8 +46,8 @@ function Login() {
       >
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">Login</h2>
 
-        <Input label="Email" type="email" name="email" control={control} />
-        <PasswordInput label="Password" type="password" name="password" control={control} />
+        <TextInput label="Email" type="email" name="email" control={control} />
+        <PasswordInput label="Password" name="password" control={control} />
 
         <Button pending={loginPending} text="Login" type="submit" />
 

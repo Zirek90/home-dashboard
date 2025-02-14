@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button, ErrorPage, Input, Loader, PasswordInput } from "@src/components";
+import { Button, ErrorPage, TextInput, Loader, PasswordInput } from "@src/components";
 import { useAuthContext } from "@src/providers";
 
 const schema = z.object({
@@ -46,9 +46,9 @@ function Register() {
       >
         <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
 
-        <Input label="Username" type="text" name="username" control={control} />
-        <Input label="Email" type="email" name="email" control={control} />
-        <PasswordInput label="Password" type="password" name="password" control={control} />
+        <TextInput label="Username" type="text" name="username" control={control} />
+        <TextInput label="Email" type="email" name="email" control={control} />
+        <PasswordInput label="Password" name="password" control={control} />
         <Button pending={registerPending} text="Register" type="submit" />
 
         <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">

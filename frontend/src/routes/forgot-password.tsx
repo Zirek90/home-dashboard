@@ -4,7 +4,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useForgotPassword } from "@src/api/mutations";
-import { Button, ErrorPage, Input } from "@src/components";
+import { Button, ErrorPage, TextInput } from "@src/components";
 import { useNotificationContext } from "@src/providers";
 import { errorHandler } from "@src/utils";
 
@@ -51,7 +51,7 @@ export function ForgotPassword() {
         >
           <h2 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">Forgot Password</h2>
 
-          <Input label="Email" type="email" name="email" control={control} />
+          <TextInput label="Email" type="email" name="email" control={control} />
           <Button text="Reset Password" type="submit" />
 
           <div className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">

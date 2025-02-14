@@ -1,5 +1,5 @@
-import { FileInput } from "../file-input";
 import { FileList } from "../file-list";
+import { FileInput } from "../shared";
 import { DropzoneInstructions } from "./dropzone-instructions";
 import { useDropzone } from "./hook/useDropzone.hook";
 

@@ -22,8 +22,13 @@ export const AuthContext = createContext<AuthProviderState | undefined>(undefine
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   // const [user, setUser] = useState<UserInterface | null>({ userId: "1", email: "", username: "" });
   const [auth, setAuth] = useState<AuthInterface | null>(() => {
-    const savedUser = localStorage.getItem("user_auth");
-    return savedUser ? JSON.parse(savedUser) : null;
+    const savedAuth = localStorage.getItem("user_auth");
+    const parsedAuth = savedAuth ? JSON.parse(savedAuth) : null;
+
+    if (parsedAuth?.access_token) {
+      httpClient.defaults.headers["Authorization"] = `Bearer ${parsedAuth.access_token}`;
+    }
+    return parsedAuth;
   });
 
   const { mutateAsync: register, isPending: registerPending } = useRegister();
@@ -31,12 +36,6 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   const queryClient = useQueryClient();
 
   const { showSuccess, showError } = useNotificationContext();
-
-  useEffect(() => {
-    if (auth?.access_token) {
-      httpClient.defaults.headers["Authorization"] = `Bearer ${auth.access_token}`;
-    }
-  }, [auth]);
 
   const handleRegister = async (credentials: RegisterRequestType) => {
     try {
@@ -52,6 +51,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   const handleLogin = async (credentials: LoginRequestType) => {
     try {
       const userAuth = await login(credentials);
+      httpClient.defaults.headers["Authorization"] = `Bearer ${userAuth.access_token}`;
       setAuth(userAuth);
       showSuccess("Login successful");
       localStorage.setItem("user_auth", JSON.stringify(userAuth));

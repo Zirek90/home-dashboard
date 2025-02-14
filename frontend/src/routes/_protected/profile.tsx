@@ -4,7 +4,7 @@ import { FaPlus, FaTrash } from "react-icons/fa";
 import { useDeleteAvatar, useUpdateAvatar } from "@src/api/mutations";
 import { getProfileQuery } from "@src/api/queries";
 import { ErrorPage } from "@src/components";
-import { Avatar } from "@src/components/avatar";
+import { Avatar } from "@src/components/shared/avatar";
 
 export const Route = createFileRoute("/_protected/profile")({
   beforeLoad: ({ context }) => {

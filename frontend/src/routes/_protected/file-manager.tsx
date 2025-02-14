@@ -2,7 +2,8 @@ import { useMemo } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { getPublicFilesQuery } from "@src/api/queries";
-import { FileAction, Dropzone, Table, Loader, ErrorPage } from "@src/components";
+import { Dropzone, FileTable, Loader, ErrorPage } from "@src/components";
+import { FileAction } from "@src/components/file-table/file-action-menu";
 import { mapFilesResponse } from "@src/mappers";
 
 export const Route = createFileRoute("/_protected/file-manager")({
@@ -38,7 +39,7 @@ function FileManager() {
       <div className="max-w-6xl w-full px-4 py-8 bg-white dark:bg-gray-950 shadow-lg rounded">
         <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-gray-100 mb-8">Files</h2>
         <Dropzone maxSize={1073741824} />
-        <Table
+        <FileTable
           data={files}
           columns={[
             { header: "File Name", key: "name" },

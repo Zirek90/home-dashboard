@@ -57,7 +57,7 @@ export function TableWithFilters() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <Button text="Add Product" onClick={handleOpen} className="bg-green-500 hover:bg-green-600, w-52" />
+        <Button text="Add Product" onClick={handleOpen} className="bg-green-500 hover:bg-green-600 !w-52" />
       </div>
       {isOpen && <ProductModal isOpen={isOpen} onClose={handleClose} mode="create" />}
       <div className="bg-white dark:bg-gray-900 shadow-md rounded-lg p-4 border border-gray-200 dark:border-gray-700">

@@ -9,6 +9,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
 import { ProductModule } from './product/product.module';
+import { SystemStatsModule } from './system-stats/system-stats.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { ProductModule } from './product/product.module';
     FileModule,
     ProductModule,
     AuthModule,
+    SystemStatsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

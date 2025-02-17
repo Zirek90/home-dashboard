@@ -6,30 +6,11 @@ import * as os from 'os';
 export class SystemStatsService {
   getSystemStats() {
     return {
-      cpuTemp: this.getCpuTemperature(),
       memoryUsage: this.getMemoryUsage(),
       diskSpace: this.getDiskSpace(),
       cpuLoad: this.getCpuLoad(),
       systemUptime: this.getSystemUptime(),
     };
-  }
-
-  private getCpuTemperature(): number | null {
-    try {
-      const isLocal = os.platform() === 'darwin';
-      const command = isLocal
-        ? "istats cpu temp | awk '{print $3}'" // requires `istats` to be installed
-        : 'vcgencmd measure_temp';
-
-      const output = execSync(command).toString().trim();
-
-      return isLocal
-        ? parseFloat(output.replace('°C', '')) // local output: "53.2°C"
-        : parseFloat(output.replace('temp=', '').replace("'C", '')); // Raspberry output: "temp=53.2'C"
-    } catch (error) {
-      console.error('Failed to get CPU temperature', error);
-      return null;
-    }
   }
 
   private getSystemUptime() {

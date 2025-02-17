@@ -5,6 +5,7 @@ import { useAuthContext } from "@src/providers";
 import { NavLink } from "./nav-link";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "../shared";
+import { SystemStats } from "./system-stats";
 import { Avatar } from "../shared/avatar";
 
 function AuthorizedLinks() {
@@ -52,6 +53,7 @@ export function Navbar() {
         <Link to="/">
           <img className="w-12 h-12 bg-gray-300 rounded-full" src={logo} alt="logo" />
         </Link>
+        <SystemStats />
       </div>
 
       <div className="flex gap-6 items-center">

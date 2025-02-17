@@ -6,3 +6,4 @@ export * from "./filter-form-values.interface";
 export * from "./product-form-values.interface";
 export * from "./product.interface";
 export * from "./total-cost.interface";
+export * from "./system-data.interface";

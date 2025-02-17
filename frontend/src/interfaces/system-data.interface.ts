@@ -1,5 +1,4 @@
 export interface SystemDataInterface {
-  cpuTemp: number;
   memoryUsage: MemoryUsage;
   diskSpace: MemoryUsage;
   cpuLoad: string;

@@ -1,4 +1,4 @@
-import { FiCpu, FiThermometer, FiDatabase, FiHardDrive, FiClock } from "react-icons/fi";
+import { FiCpu, FiDatabase, FiHardDrive, FiClock } from "react-icons/fi";
 import { API_URL } from "@src/globals";
 import { useWebsocket } from "@src/hooks";
 import { SystemDataInterface } from "@src/interfaces";
@@ -15,7 +15,6 @@ export function SystemStats() {
   return (
     <div className="flex gap-6 text-gray-700 dark:text-gray-300 text-sm">
       <Stat label="CPU Load" icon={<FiCpu className="text-red-500" size={16} />} value={`${data.cpuLoad}%`} />
-      <Stat label="CPU Temp" icon={<FiThermometer className="text-blue-500" size={16} />} value={`${data.cpuTemp}°C`} />
       <Stat
         label="Memory Usage"
         icon={<FiDatabase className="text-green-500" size={16} />}

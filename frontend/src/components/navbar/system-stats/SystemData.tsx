@@ -1,11 +1,12 @@
 import { FiCpu, FiThermometer, FiDatabase, FiHardDrive, FiClock } from "react-icons/fi";
+import { API_URL } from "@src/globals";
 import { useWebsocket } from "@src/hooks";
 import { SystemDataInterface } from "@src/interfaces";
 import { formatUptime, formatUsage } from "@src/utils";
 import { Stat } from "./stat/Stat";
 
 export function SystemStats() {
-  const { data } = useWebsocket<SystemDataInterface>("http://localhost:3000", "system-stats");
+  const { data } = useWebsocket<SystemDataInterface>(API_URL, "system-stats");
 
   if (!data) {
     return null;

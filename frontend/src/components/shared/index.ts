@@ -8,3 +8,4 @@ export * from "./tooltip";
 export * from "./date-range-input";
 export * from "./select";
 export * from "./modal";
+export * from "./table";

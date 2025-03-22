@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useContext, useEffect, useState } from "react";
+import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { httpClient } from "@src/api/api";
 import { useLogin, useRegister } from "@src/api/mutations";

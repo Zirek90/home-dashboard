@@ -1,14 +1,14 @@
 import { FiMoreVertical } from "react-icons/fi";
 import { ProductModal } from "@src/components/product-modal";
-import { useActionMenu } from "./hook/useActionMenu.hook";
+import { useProductActionMenu } from "./hook/useProductActionItem.hook";
 
-interface ActionMenuProps {
+interface ProductActionMenuProps {
   id: string;
   onEdit: () => void;
   onDelete: () => void;
 }
 
-export function ProductActionMenu(props: ActionMenuProps) {
+export function ProductActionMenu(props: ProductActionMenuProps) {
   const { onEdit, onDelete } = props;
 
   return (
@@ -26,14 +26,14 @@ export function ProductActionMenu(props: ActionMenuProps) {
   );
 }
 
-interface ActionItemProps {
+interface ProductActionItemProps {
   id: string;
 }
 
-export function ActionItem(props: ActionItemProps) {
+export function ProductActionItem(props: ProductActionItemProps) {
   const { id } = props;
   const { isMenuOpen, menuRef, openMenu, handleEdit, handleDelete, isModalOpen, modalMode, handleCloseModal } =
-    useActionMenu();
+    useProductActionMenu();
 
   return (
     <div className="relative" ref={menuRef}>

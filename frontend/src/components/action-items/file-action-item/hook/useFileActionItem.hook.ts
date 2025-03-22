@@ -5,12 +5,12 @@ import { useOutsideClick } from "@src/hooks";
 import { useNotificationContext } from "@src/providers";
 import { downloadFile, errorHandler } from "@src/utils";
 
-interface useActionMenuProps {
+interface useFileActionMenuProps {
   id: string;
   name: string;
 }
 
-interface useActionMenuReturn {
+interface useFileActionMenuReturn {
   isMenuOpen: boolean;
   progress: number;
   handleAbort: () => void;
@@ -20,7 +20,7 @@ interface useActionMenuReturn {
   openMenu: () => void;
 }
 
-export function useActionMenu(props: useActionMenuProps): useActionMenuReturn {
+export function useFileActionMenu(props: useFileActionMenuProps): useFileActionMenuReturn {
   const { id, name } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null!);

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useProductsQuery } from "@src/api/queries";
+import { ColumnDef } from "@tanstack/react-table";
 import { CategoryEnum, CurrencyEnum } from "@src/enums";
 import { ProductInterface } from "@src/interfaces";
+import { ProductActionItem } from "../action-items";
 import { FilterableTable } from "../filter-table";
 import { ProductModal } from "../product-modal";
 import { ProductTable } from "../product-table";
-import { Button, Loader } from "../shared";
+import { Button } from "../shared";
 import { useTableFilters } from "./hook/useTableFilters";
-import { ActionItem } from "../product-table/product-action-menu";
 
 const MOCK: ProductInterface[] = [
   {
@@ -40,19 +40,20 @@ const MOCK: ProductInterface[] = [
   },
 ];
 
-export function TableWithFilters() {
-  const { data, isLoading } = useProductsQuery();
-  const { control, filteredData } = useTableFilters(data || []);
+interface ProductTableWithFiltersProps {
+  data: ProductInterface[];
+  columns: ColumnDef<ProductInterface, keyof ProductInterface>[];
+}
+
+export function ProductTableWithFilters(props: ProductTableWithFiltersProps) {
+  const { data, columns } = props;
+  const { control, filteredData } = useTableFilters(data);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => {
     setIsOpen(false);
   };
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   return (
     <div className="space-y-6">
@@ -64,18 +65,11 @@ export function TableWithFilters() {
         <h3 className="text-lg font-medium mb-2 text-gray-700 dark:text-gray-300">Filters</h3>
         <FilterableTable control={control} />
       </div>
+
       <ProductTable
         data={filteredData}
-        columns={[
-          { header: "File Name", key: "name" },
-          { header: "Price", key: "price" },
-          { header: "Currency", key: "currency" },
-          { header: "Shop", key: "shop" },
-          { header: "Category", key: "category" },
-          { header: "Created by", key: "createdBy" },
-          { header: "Date", key: "createdAt" },
-        ]}
-        actions={(item) => <ActionItem key={item.id} id={item.id} />}
+        columns={columns}
+        actions={(item) => <ProductActionItem key={item.id} id={item.id} />}
       />
     </div>
   );

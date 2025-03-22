@@ -1,6 +1,6 @@
 import { FiMoreVertical } from "react-icons/fi";
 import { Button, CircularProgress } from "@src/components/shared";
-import { useActionMenu } from "./hook/useActionMenu.hook";
+import { useFileActionMenu } from "./hook/useFileActionItem.hook";
 
 interface ActionMenuProps {
   name: string;
@@ -35,7 +35,7 @@ interface FileActionProps {
 
 export function FileAction(props: FileActionProps) {
   const { id, name } = props;
-  const { progress, isMenuOpen, menuRef, handleAbort, handleDelete, handleDownload, openMenu } = useActionMenu({
+  const { progress, isMenuOpen, menuRef, handleAbort, handleDelete, handleDownload, openMenu } = useFileActionMenu({
     id,
     name,
   });

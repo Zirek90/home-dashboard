@@ -2,7 +2,7 @@ import { RefObject, useRef, useState } from "react";
 import { useOutsideClick } from "@src/hooks";
 import { ModalModeType } from "@src/types";
 
-interface useActionMenuReturn {
+interface useProductActionMenuReturn {
   isMenuOpen: boolean;
   menuRef: RefObject<HTMLDivElement>;
   openMenu: () => void;
@@ -13,7 +13,7 @@ interface useActionMenuReturn {
   isModalOpen: boolean;
 }
 
-export function useActionMenu(): useActionMenuReturn {
+export function useProductActionMenu(): useProductActionMenuReturn {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState<ModalModeType>("edit");

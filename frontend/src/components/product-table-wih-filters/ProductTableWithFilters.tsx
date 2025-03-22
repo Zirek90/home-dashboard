@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { CategoryEnum, CurrencyEnum } from "@src/enums";
 import { ProductInterface } from "@src/interfaces";
 import { ProductActionItem } from "../action-items";
 import { FilterableTable } from "../filter-table";
@@ -9,36 +8,36 @@ import { ProductTable } from "../product-table";
 import { Button } from "../shared";
 import { useTableFilters } from "./hook/useTableFilters";
 
-const MOCK: ProductInterface[] = [
-  {
-    id: "1",
-    name: "testname1",
-    price: 1.2,
-    currency: CurrencyEnum.PLN,
-    shop: "shop1",
-    category: CategoryEnum.GROCERY,
-    createdAt: "2025-02-11T17:15:13.667Z",
-    createdBy: {
-      id: "122",
-      username: "abc",
-      avatar: null,
-    },
-  },
-  {
-    id: "2",
-    name: "testname2",
-    price: 3.2,
-    currency: CurrencyEnum.EUR,
-    shop: "",
-    category: CategoryEnum.OTHERS,
-    createdAt: "2025-01-11T17:15:13.667Z",
-    createdBy: {
-      id: "122",
-      username: "abc",
-      avatar: null,
-    },
-  },
-];
+// const MOCK: ProductInterface[] = [
+//   {
+//     id: "1",
+//     name: "testname1",
+//     price: 1.2,
+//     currency: CurrencyEnum.PLN,
+//     shop: "shop1",
+//     category: CategoryEnum.GROCERY,
+//     createdAt: "2025-02-11T17:15:13.667Z",
+//     createdBy: {
+//       id: "122",
+//       username: "abc",
+//       avatar: null,
+//     },
+//   },
+//   {
+//     id: "2",
+//     name: "testname2",
+//     price: 3.2,
+//     currency: CurrencyEnum.EUR,
+//     shop: "",
+//     category: CategoryEnum.OTHERS,
+//     createdAt: "2025-01-11T17:15:13.667Z",
+//     createdBy: {
+//       id: "122",
+//       username: "abc",
+//       avatar: null,
+//     },
+//   },
+// ];
 
 interface ProductTableWithFiltersProps {
   data: ProductInterface[];
